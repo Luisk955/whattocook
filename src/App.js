@@ -1,24 +1,18 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './App.css';
+import firebase from './firebase';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.ref = firebase.firestore().collection('boards');
+    this.state = {};
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <div className="container"></div>
     );
   }
 }
