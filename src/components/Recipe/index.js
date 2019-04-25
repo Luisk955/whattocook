@@ -48,7 +48,7 @@ class RecipePage extends Component {
 
 const RecipeList = ({ recipes }) => (
   <ul>
-    {recipes.map)}
+    {recipes}
   </ul>
 );
 

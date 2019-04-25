@@ -17,23 +17,20 @@ const Navigation = () => (
 );
 
 const NavigationAuth = () => (
-  <ul>
-    <li>
-      <Link to={ROUTES.LANDING}>Landing</Link>
-    </li>
-    <li>
-      <Link to={ROUTES.HOME}>Home</Link>
-    </li>
-    <li>
-      <Link to={ROUTES.ACCOUNT}>Account</Link>
-    </li>
-    <li>
-      <Link to={ROUTES.RECIPE}>Recipe</Link>
-    </li>
-    <li>
+  <nav className="navbar navbar-expand-lg navbar-light bg-light">
+  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span className="navbar-toggler-icon"></span>
+  </button>
+  <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div className="navbar-nav">
+      <Link className="nav-item nav-link" to={ROUTES.LANDING}>Landing</Link>
+      <Link className="nav-item nav-link" to={ROUTES.HOME}>Home</Link>
+      <Link className="nav-item nav-link" to={ROUTES.RECIPE}>Recipe</Link>
+      <Link className="nav-item nav-link" to={ROUTES.ACCOUNT}>Account</Link>
       <SignOutButton />
-    </li>
-  </ul>
+    </div>
+  </div>
+  </nav>
 );
 
 const NavigationNonAuth = () => (
