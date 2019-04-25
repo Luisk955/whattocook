@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.css';
 
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
@@ -74,36 +75,48 @@ class SignUpFormBase extends Component {
       username === '';
 
     return (
-      <form onSubmit={this.onSubmit}>
-        <input
+      <form className="container" onSubmit={this.onSubmit}>
+        <div className="form-group">
+          <input
           name="username"
           value={username}
+          className="form-control"
           onChange={this.onChange}
           type="text"
           placeholder="Full Name"
-        />
-        <input
-          name="email"
-          value={email}
-          onChange={this.onChange}
-          type="text"
-          placeholder="Email Address"
-        />
-        <input
-          name="passwordOne"
-          value={passwordOne}
-          onChange={this.onChange}
-          type="password"
-          placeholder="Password"
-        />
-        <input
-          name="passwordTwo"
-          value={passwordTwo}
-          onChange={this.onChange}
-          type="password"
-          placeholder="Confirm Password"
-        />
-        <button disabled={isInvalid} type="submit">
+          />
+        </div>
+        <div className="form-group">
+          <input
+            name="email"
+            value={email}
+            className="form-control"
+            onChange={this.onChange}
+            type="text"
+            placeholder="Email Address"
+          />
+        </div>
+        <div className="form-group">
+          <input
+            name="passwordOne"
+            value={passwordOne}
+            className="form-control"
+            onChange={this.onChange}
+            type="password"
+            placeholder="Password"
+          />
+        </div>
+        <div className="form-group">
+          <input
+            name="passwordTwo"
+            value={passwordTwo}
+            className="form-control"
+            onChange={this.onChange}
+            type="password"
+            placeholder="Confirm Password"
+          />
+        </div>
+        <button className="btn btn-primary"disabled={isInvalid} type="submit">
           Sign Up
         </button>
 

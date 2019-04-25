@@ -9,7 +9,7 @@ import * as ROUTES from '../../constants/routes';
 
 const SignInPage = () => (
   <div>
-    <h1>SignIn</h1>
+    <p className="h2">Sign In</p>
     <SignInForm />
     <PasswordForgetLink />
     <SignUpLink />
@@ -56,21 +56,27 @@ class SignInFormBase extends Component {
 
     return (
       <form onSubmit={this.onSubmit}>
-        <input
-          name="email"
-          value={email}
-          onChange={this.onChange}
-          type="text"
-          placeholder="Email Address"
-        />
-        <input
-          name="password"
-          value={password}
-          onChange={this.onChange}
-          type="password"
-          placeholder="Password"
-        />
-        <button disabled={isInvalid} type="submit">
+        <div className="form-group">
+          <input
+            name="email"
+            value={email}
+            className="form-control col-3"
+            onChange={this.onChange}
+            type="text"
+            placeholder="Email Address"
+          />
+        </div>
+        <div className="form-group">
+          <input
+            name="password"
+            value={password}
+            className="form-control col-3"
+            onChange={this.onChange}
+            type="password"
+            placeholder="Password"
+          />
+        </div>
+        <button className="btn btn-primary" disabled={isInvalid} type="submit">
           Sign In
         </button>
 

@@ -15,7 +15,7 @@ import { withAuthentication } from '../Session';
 
 const App = () => (
   <Router>
-    <div>
+    <div className="container">
       <Navigation />
 
       <hr />
