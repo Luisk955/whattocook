@@ -7,7 +7,7 @@ import * as ROUTES from '../../constants/routes';
 
 const SignUpPage = () => (
   <div>
-    <h1>SignUp</h1>
+    <p className="h2">Create your account</p>
     <SignUpForm />
   </div>
 );
@@ -75,12 +75,12 @@ class SignUpFormBase extends Component {
       username === '';
 
     return (
-      <form className="container" onSubmit={this.onSubmit}>
+      <form className="mt-3" onSubmit={this.onSubmit}>
         <div className="form-group">
           <input
           name="username"
           value={username}
-          className="form-control"
+          className="form-control col-4"
           onChange={this.onChange}
           type="text"
           placeholder="Full Name"
@@ -90,7 +90,7 @@ class SignUpFormBase extends Component {
           <input
             name="email"
             value={email}
-            className="form-control"
+            className="form-control col-4"
             onChange={this.onChange}
             type="text"
             placeholder="Email Address"
@@ -100,7 +100,7 @@ class SignUpFormBase extends Component {
           <input
             name="passwordOne"
             value={passwordOne}
-            className="form-control"
+            className="form-control col-4"
             onChange={this.onChange}
             type="password"
             placeholder="Password"
@@ -110,7 +110,7 @@ class SignUpFormBase extends Component {
           <input
             name="passwordTwo"
             value={passwordTwo}
-            className="form-control"
+            className="form-control col-4"
             onChange={this.onChange}
             type="password"
             placeholder="Confirm Password"
