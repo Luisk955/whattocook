@@ -12,24 +12,7 @@ class RecipePage extends Component {
     };
   }
 
-  componentDidMount() {
-    this.setState({ loading: true });
 
-    this.props.firebase.recipes().on('value', snapshot => {
-      const recipesObject = snapshot.val();
-
-      const recipesList = Object.keys(recipesObject).map;
-
-      this.setState({
-        recipes: recipesList,
-        loading: false,
-      });
-    });
-  }
-
-  componentWillUnmount() {
-    this.props.firebase.recipes().off();
-  }
 
   render() {
     const { recipes, loading } = this.state;

@@ -1,6 +1,9 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 import { withAuthorization } from '../Session';
+
+import RecipeComponent from '../Recipe/recipeComponent';
 
 var recipes;
 var ingredients = [];
@@ -20,26 +23,34 @@ const HomePage = () => (
       <div id="ingredients">
         {ingredientsList}
       </div>
-      <button className="btn btn-primary col-4 mt-3">Search</button>
+      <button className="btn btn-primary col-4 mt-3" onClick={getRecipesData}>Search</button>
     </div>
+    <div id="recipesContainer"></div>
   </div>
 );
 
-getRecipesData();
-
 function getRecipesData() {
-  fetch('https://api.edamam.com/search?q=chicken+rice+water&app_id=3cb47b69&app_key=6c0a27ca31b9eeddbbbe1428e4b92d6a')
+  let ingredientsString = '';
+
+  for (let i = 0; i < ingredients.length; i++) {
+    ingredientsString += ingredients[i] + '+';
+  }
+
+  fetch(`https://api.edamam.com/search?q=${ingredientsString}water&app_id=3cb47b69&app_key=6c0a27ca31b9eeddbbbe1428e4b92d6a`)
   .then((response) => {
       return response.json()
   })
   .then((resp) => {
     recipes =  resp.hits;
+    ReactDOM.render(<RecipeComponent recipes={recipes}/>, document.getElementById('recipesContainer'));
   });
+
 }
 
 function addIngredient(){
   ingredients.push(document.getElementById(`textIngredient`).value);
   document.getElementById("ingredients").innerHTML = '';
+  document.getElementById('textIngredient').value = '';
   ingredients.forEach(element => {
     document.getElementById("ingredients").innerHTML += element;
   });
