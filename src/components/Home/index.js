@@ -38,20 +38,11 @@ function getRecipesData() {
 }
 
 function addIngredient(){
-console.log(document.getElementById(`textIngredient`).value);
   ingredients.push(document.getElementById(`textIngredient`).value);
-  
-  for (let i = 0; i< ingredients.length; i++) {
-    console.log(ingredients[i]) ; 
-
-     var divList = document.getElementById("ingredients");
-     divList.innerHTML = ingredients[i];
-
-} 
-
-
-
-console.log(ingredients);
+  document.getElementById("ingredients").innerHTML = '';
+  ingredients.forEach(element => {
+    document.getElementById("ingredients").innerHTML += element;
+  });
 
 }
 
