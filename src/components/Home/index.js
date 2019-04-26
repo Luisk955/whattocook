@@ -38,15 +38,20 @@ function getRecipesData() {
 }
 
 function addIngredient(){
-  debugger;
+console.log(document.getElementById(`textIngredient`).value);
   ingredients.push(document.getElementById(`textIngredient`).value);
-  ingredientsList = ingredients.map((item, i) => (
-    <div className="card person-card mx-auto"  key={i}>
-        <p>{item}</p>
-    </div>
-  ));
+  
+  for (let i = 0; i< ingredients.length; i++) {
+    console.log(ingredients[i]) ; 
 
-  ingredients.push(document.getElementById(`ingredients`).innerHTML = {ingredientsList});
+     var divList = document.getElementById("ingredients");
+     divList.innerHTML = ingredients[i];
+
+} 
+
+
+
+console.log(ingredients);
 
 }
 
